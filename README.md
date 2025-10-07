@@ -17,10 +17,12 @@ A full-stack web application designed to help users track, manage, and understan
 - shadcn/ui components
 
 ## Project Structure
+```markdown
 FinAssist/
 ├── backend/ # Express.js API server
 ├── frontend/ # React application
 └── README.md
+```
 
 ## Installation & Setup
 
@@ -32,12 +34,17 @@ FinAssist/
 ### Backend Setup
 
 1. Navigate to the backend directory:
+```console
 cd backend
+```
 
 2. Install dependencies:
+```console
 npm i
+```
 
 3. Create a `.env` file in the root of `/backend` with the following configuration:
+```console
 Server Port
 PORT=5000
 
@@ -51,26 +58,36 @@ JWT Configuration
 JWT_SECRET=super-secret-key-for-my-finance-app-that-no-one-will-guess-12345!
 JWT_EXPIRE=30d
 
+```
 **Important**: Replace the placeholder values with your actual credentials:
 - `GEMINI_API_KEY`: Obtain from Google AI Studio
 - `MONGO_URI`: Get from MongoDB Atlas or use local MongoDB connection string
 - `JWT_SECRET`: Use a strong, unique secret key for production
 
 4. Start the backend server:
+```console
 npm start
 
+```
 
 The API server will run on `http://localhost:5000`
 
 ### Frontend Setup
 
 1. Navigate to the frontend directory:
+```console
 cd frontend
+```
 
 2. Install dependencies:
+```console
 npm i
+```
 
 3. Start the development server:
+```console
+npm run dev
+```
 
 The application will be available at `http://localhost:5173` (default Vite port)
 
