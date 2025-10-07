@@ -11,23 +11,23 @@ interface StatCardProps {
 }
 
 export const StatCard = ({ title, value, icon: Icon, trend, variant = "default" }: StatCardProps) => {
-  const variantClasses = {
-    default: "bg-card",
-    success: "bg-gradient-success",
-    warning: "bg-gradient-to-br from-warning/10 to-warning/5",
-  };
-
-  const iconClasses = {
-    default: "text-primary",
-    success: "text-white",
-    warning: "text-warning",
-  };
-
-  const textClasses = {
-    default: "text-card-foreground",
-    success: "text-white",
-    warning: "text-foreground",
-  };
+    const variantClasses = {
+        default: "bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700",
+        success: "bg-gradient-to-br from-green-500 to-green-600",
+        warning: "bg-gradient-to-br from-amber-500 to-orange-500",
+      };
+    
+      const iconClasses = {
+        default: "text-blue-600 dark:text-blue-400",
+        success: "text-white",
+        warning: "text-white",
+      };
+    
+      const textClasses = {
+        default: "text-gray-950 dark:text-gray-50",
+        success: "text-gray-900",
+        warning: "text-gray-900",
+      };      
 
   return (
     <Card className={`${variantClasses[variant]} shadow-md transition-smooth hover:shadow-lg`}>

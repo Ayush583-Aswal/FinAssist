@@ -18,6 +18,7 @@ const DashboardPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingTransaction, setEditingTransaction] = useState<Transaction | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const loadTransactions = async () => {
     if (!token) return;
@@ -156,6 +157,8 @@ const DashboardPage = () => {
               transactions={transactions.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())}
               onEdit={handleEdit}
               onDelete={handleDelete}
+              currentPage={currentPage}
+              onPageChange={setCurrentPage}
             />
           )}
         </div>
