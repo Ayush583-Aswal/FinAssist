@@ -1,15 +1,22 @@
-import { Link } from 'react-router-dom';
-import { Button } from '../components/ui/button';
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Home } from "lucide-react";
 
-export function NotFoundPage() {
+const NotFound = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-center">
-      <h1 className="text-6xl font-bold">404</h1>
-      <p className="text-xl mt-4 text-gray-600">Oops! Page not found.</p>
-      <p className="mt-2 text-gray-500">The page you're looking for doesn't exist.</p>
-      <Button asChild className="mt-6">
-        <Link to="/dashboard">Go to Dashboard</Link>
-      </Button>
+    <div className="flex min-h-screen items-center justify-center bg-background">
+      <div className="text-center">
+      <h1 className="mb-4 text-6xl font-bold text-foreground">404</h1>
+        <p className="mb-8 text-xl text-muted-foreground">Oops! Page not found</p>
+        <Button asChild className="gradient-primary">
+          <Link to="/" className="gap-2">
+            <Home className="h-4 w-4" />
+            Return to Home
+          </Link>
+        </Button>
+      </div>
     </div>
   );
-}
+};
+
+export default NotFound;
