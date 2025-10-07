@@ -1,10 +1,9 @@
-import express from 'express';
 import dotenv from 'dotenv';
-import cors from 'cors';
-import connectDB from './config/db.js';
-
 // Load env vars
 dotenv.config();
+import express from 'express';
+import cors from 'cors';
+import connectDB from './config/db.js';
 
 // Connect to database
 connectDB();

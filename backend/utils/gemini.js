@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
@@ -19,7 +22,14 @@ export const scanReceiptWithGemini = async (file) => {
       - A brief description or list of items
       - Suggested category (e.g., groceries, food, utilities, etc.)
       
-      Respond only with valid JSON.
+      Respond only with valid JSON:
+      {
+        "type": "expense"/"income",
+        "amount": number,
+        "category": "groceries/food/transport/bill/shopping/others",
+        "description": "Weekly shopping",
+        "date": "2023-10-27"
+    }
     `;
 
     const result = await model.generateContent([prompt, imagePart]);
@@ -27,8 +37,16 @@ export const scanReceiptWithGemini = async (file) => {
     const text = response.text();
 
     try {
-        return JSON.parse(text);
+        // Clean markdown formatting if present
+        let cleanedText = text.trim();
+        
+        // Remove markdown code blocks
+        cleanedText = cleanedText.replace(/``````\n?/g, '');
+        
+        const parsedData = JSON.parse(cleanedText);
+        return parsedData;
     } catch (error) {
-        throw new Error('Failed to parse response from Gemini');
+        console.error('Failed to parse Gemini response:', text);
+        throw new Error('Failed to parse response from Gemini: ' + error.message);
     }
 };
