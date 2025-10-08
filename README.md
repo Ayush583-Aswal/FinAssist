@@ -2,7 +2,8 @@
 
 A full-stack web application designed to help users track, manage, and understand their financial activities. Users can log income and expenses, categorize transactions, view spending summaries through interactive graphs, and extract transaction data from receipts using AI-powered OCR.
 
-[![Watch the video](https://img.youtube.com/vi/Ew9Wp7uX7R4/0.jpg)](https://youtu.be/Ew9Wp7uX7R4)
+![Demo Preview](assets/demo.gif)
+
 
 
 ## Tech Stack
